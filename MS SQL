@@ -1,0 +1,12 @@
+import pyodbc
+
+def main():
+    Sql = pyodbc.connect("Driver={SQL Server Native Client 11.0};" +
+                         "Server=" + "serverName" + ";" +
+                         "Database=" + "baseName" + ";" +
+                         "Trusted_Connection=yes;")
+    cursor = Sql.cursor()
+    cursor.execute("select cellName1, cellName2, cellName3, cellName4 from tableName")
+    rows = cursor.fetchall()
+    print(len(rows))
+    Policies = []
